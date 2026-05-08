@@ -1,25 +1,24 @@
-import { Articles } from "@/contant/articles";
+import { Articles } from "@/constant/articles";
 
 export const FilterArticles = (keyWord: string) => {
-  const data = [...Articles].filter((articles) => {
-    const cond =
-      articles.title.toLowerCase().indexOf(keyWord.toLowerCase()) > -1 ||
-      articles.des.toLowerCase().indexOf(keyWord.toLowerCase()) > -1;
-
-    if (!cond) return;
-
-    return {
+  const data = [...Articles]
+    .filter((articles) => {
+      return (
+        articles.title.toLowerCase().indexOf(keyWord.toLowerCase()) > -1 ||
+        articles.des.toLowerCase().indexOf(keyWord.toLowerCase()) > -1
+      );
+    })
+    .map((articles) => ({
       title: articles.title.replaceAll(
-        keyWord,
-        `<span style="color: red">${keyWord}</span>`,
+        new RegExp(keyWord, "gi"),
+        (e) => `<span style="color: red">${e}</span>`,
       ),
       date: articles.date,
       des: articles.des.replaceAll(
-        keyWord,
-        `<span style="color: red">${keyWord}</span>`,
+        new RegExp(keyWord, "gi"),
+        (e) => `<span style="color: red">${e}</span>`,
       ),
-    };
-  });
+    }));
 
   return data;
 };
