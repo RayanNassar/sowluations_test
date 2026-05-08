@@ -7,9 +7,9 @@
     </div>
 
     <div class="articles" v-for="item in articles">
-      <div class="article-title"> {{ item.title }} </div>
+      <div class="article-title" v-html="item.title" />
       <div class="article-date"> {{ item.date }} </div>
-      <div class="article-des"> {{ item.des }} </div>
+      <div class="article-des" v-html="item.des" />
     </div>
   </div>
 </template>
