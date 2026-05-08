@@ -1,4 +1,4 @@
-import { TArticles } from "@/utils/types/constant";
+import type { TArticles } from "@/utils/types/constant";
 
 export const Articles: TArticles[] = [
   {
