@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  margin: 10px
+}
+
+.articles {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input_keyword {
+  width: 30% !important
+}
+
+@media (max-width: 768px) {
+  .input_keyword {
+    width: 90% !important
+  }
+
+  .articles {
+    margin-top: 10px ;
+  }
+
+}
